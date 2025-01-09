@@ -9,6 +9,8 @@ int main(int argc, char *argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+    printf("Rank %d, ", rank);
+
     if (rank & 1) // Odd 
         printf("%d\n", fibonacci(rank));
     else
