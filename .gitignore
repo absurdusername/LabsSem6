@@ -11,6 +11,9 @@
 !*.py
 !*.ipynb
 
+# C
+!*.c
+
 # other files
 !.gitignore
 !*.md
