@@ -6,8 +6,7 @@ To compile
 To run
 `mpicc -np 1 ./src.out`
 
-Reference on `MPI_Send` and `MPI_Receive`
-https://mpitutorial.com/tutorials/mpi-send-and-receive/
+## Send and Receive
 
 ```c
 MPI_Send(
@@ -39,6 +38,52 @@ https://iamsorush.com/posts/mpi-send-types/
 
 [Notes on MPI_Bsend](https://www.open-mpi.org/doc/v3.0/man3/MPI_Bsend.3.php#toc8) by the OpenMPI docs.
 
-### Unresolved questions
+## Collective communication
 
-Buffer is only used for reading, then why wait for it to be freed?
+```c
+MPI_Barrier(MPI_Comm communicator)
+
+MPI_Bcast(
+    void* data,
+    int count,
+    MPI_Datatype datatype,
+    int root,
+    MPI_Comm communicator
+)
+
+MPI_Scatter(
+    void* send_data,
+    int send_count,
+    MPI_Datatype send_datatype,
+    void* recv_data,
+    int recv_count,
+    MPI_Datatype recv_datatype,
+    int root,
+    MPI_Comm communicator
+)
+
+MPI_Gather(
+    void* send_data,
+    int send_count,
+    MPI_Datatype send_datatype,
+    void* recv_data,
+    int recv_count,
+    MPI_Datatype recv_datatype,
+    int root,
+    MPI_Comm communicator
+)
+
+MPI_Allgather(
+    void* send_data,
+    int send_count,
+    MPI_Datatype send_datatype,
+    void* recv_data,
+    int recv_count,
+    MPI_Datatype recv_datatype,
+    MPI_Comm communicator
+)
+```
+
+## Unresolved
+
+Do I use `MPI_Barrier()` for lab03-q4?
