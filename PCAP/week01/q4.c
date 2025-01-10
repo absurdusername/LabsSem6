@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 
     char string[] = "HELLO";
     string[rank] = string[rank] ^ ('a' - 'A'); // toggle
-    printf("%s\n", string);
+    printf("Rank %d: %s\n", rank, string);
     
     MPI_Finalize();
     return 0;

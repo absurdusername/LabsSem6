@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    printf("x^rank: %f\n", pow(x, rank));
+    printf("Process %d, x^rank: %f\n", rank, pow(x, rank));
 
     MPI_Finalize();
     return 0;

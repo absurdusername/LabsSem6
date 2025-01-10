@@ -7,9 +7,9 @@ int main(int argc, char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
     if (rank & 1) // Odd
-        printf("World\n");
+        printf("Rank %d: world\n", rank);
     else
-        printf("Hello\n");
+        printf("Rank %d: hello\n", rank);
 
     MPI_Finalize();
     return 0;
