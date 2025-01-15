@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
 
 		// data, count, datatype, destination, tag, communicator
 		MPI_Ssend(string, strlen(string) + 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
-		
+
 		// data, count, datatype, source, tag, communicator, status
 		MPI_Recv(string, strlen(string) + 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
@@ -25,8 +25,9 @@ int main(int argc, char **argv) {
 
 		MPI_Recv(string, max_length, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-		for (int i = 0; i < strlen(string); i++)
-			string[i] = string[i] ^ 32;
+		for (int i = 0; i < strlen(string); i++) 
+			if (string[i] != ' ')
+				string[i] = string[i] ^ 32;
 		
 		MPI_Ssend(string, strlen(string) + 1, MPI_CHAR, 0, 0, MPI_COMM_WORLD);
     }
