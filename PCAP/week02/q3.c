@@ -17,8 +17,8 @@ int main() {
         MPI_Buffer_attach(buffer, buffer_size);
 
         for (int i = 1; i < size; i++) {
-            int x = rand();
-            MPI_Send(&rand, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
+            int x = 55;
+            MPI_Bsend(&x, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
             // remember: MPI_Send cannot use MPI_ANY_TAG
         }
 
