@@ -15,8 +15,10 @@ int main() {
     int M;
     float *numbers;
     if (rank == 0) {
-        printf("Enter M: \n");
+        printf("Enter M (elements per process): \n");
         scanf("%d", &M);
+
+        printf("Enter %d numbers:\n", M * size);
         numbers = read_list(M * size);
     }
     MPI_Bcast(&M, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -44,7 +46,6 @@ int main() {
 float *read_list(int size) {
     float *list = malloc(size * sizeof(float));
 
-    printf("Enter %d numbers: \n", size);
     for (int i = 0; i < size; i++) 
         scanf("%f", list + i);
     

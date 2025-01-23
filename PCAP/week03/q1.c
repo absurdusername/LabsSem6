@@ -14,8 +14,10 @@ int main() {
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     int *numbers = NULL;
-    if (rank == 0) 
+    if (rank == 0) {
+        printf("Enter %d numbers: \n", size);
         numbers = read_list(size);
+    }
     
     int local_number;
     MPI_Scatter(
@@ -59,7 +61,6 @@ int main() {
 int *read_list(int size) {
     int *list = malloc(size * sizeof(int));
 
-    printf("Enter the numbers: \n");
     for (int i = 0; i < size; i++) 
         scanf("%d", list + i);
     
