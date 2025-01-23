@@ -19,7 +19,6 @@ int main() {
         scanf("%d", &M);
         numbers = read_list(M * size);
     }
-    MPI_Barrier(MPI_COMM_WORLD);
     MPI_Bcast(&M, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
     float *local_data = malloc(M * sizeof(float));
