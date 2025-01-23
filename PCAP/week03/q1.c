@@ -2,33 +2,9 @@
 #include <stdlib.h>
 #include <mpi.h>
 
-int *read_list(int size) {
-    int *list = malloc(size * sizeof(int));
-
-    printf("Enter the numbers: \n");
-    for (int i = 0; i < size; i++) 
-        scanf("%d", list + i);
-    
-    return list;
-}
-
-int factorial(int x) {
-    int result = 1;
-
-    for (int i = 1; i <= x; i++)
-        result *= i;
-    
-    return result;
-}
-
-int sum(int *list, int size) {
-    int result = 0;
-
-    for (int i = 0; i < size; i++)
-        result += list[i];
-    
-    return result;
-}
+int *read_list(int size);
+int factorial(int x);
+int sum(int *list, int size);
 
 int main() {
     MPI_Init(NULL, NULL);
@@ -78,4 +54,32 @@ int main() {
 
     MPI_Finalize();
     return 0;
+}
+
+int *read_list(int size) {
+    int *list = malloc(size * sizeof(int));
+
+    printf("Enter the numbers: \n");
+    for (int i = 0; i < size; i++) 
+        scanf("%d", list + i);
+    
+    return list;
+}
+
+int factorial(int x) {
+    int result = 1;
+
+    for (int i = 1; i <= x; i++)
+        result *= i;
+    
+    return result;
+}
+
+int sum(int *list, int size) {
+    int result = 0;
+
+    for (int i = 0; i < size; i++)
+        result += list[i];
+    
+    return result;
 }
