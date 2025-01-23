@@ -18,6 +18,7 @@ int main() {
     char *string = NULL;
 
     if (rank == 0) {
+        printf("Enter a string\n");
         string = read_string();
         int length = strlen(string);
 
