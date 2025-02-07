@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Stupid homework</title>
+</head>
+
+<body>
+	<h1>Conference Registration</h1>
+	<hr>
+
+	<form action="" method="get">
+		<fieldset>
+			<legend>Participant details</legend>
+
+			<div>
+				<label for="name">Full name</label>
+				<input type="text" name="name" id="name" required>
+			</div>
+
+			<div>
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email">
+			</div>
+
+			<div>
+				<label for="phone">Phone</label>
+				<input type="tel" name="phone" id="phone" pattern="\d{10}" required>
+			</div>
+
+			<div>
+				<label for="age">Age</label>
+				<input type="number" name="age" id="age" min="18" max="60">
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Events</legend>
+
+			<select id="event" name="event" multiple>
+				<option>Coding contest</option>
+				<option>Hackathon</option>
+				<option>Paper presentation</option>
+				<option>Robotics challenge</option>
+				<option>Keynote sessions</option>
+			</select>
+
+			<small>Hold Ctrl (Windows) or Command (Mac) to select multiple options.</small>
+		</fieldset>
+
+		<fieldset>
+			<legend>Accomodation</legend>
+
+			<input type="radio" id="accomodationChoice1" name="accomodation" value="hostel">
+			<label for="accomodationChoice1">Hostel</label>
+
+			<input type="radio" id="accomodationChoice2" name="accomodation" value="hotel">
+			<label for="accomodationChoice2">Hotel</label>
+
+			<input type="radio" id="accomodationChoice3" name="accomodation" value="none" checked>
+			<label for="accomodationChoice3">None</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>Food preference</legend>
+
+			<div>
+				<input type="radio" id="foodChoice1" name="food" value="vegetarian">
+				<label for="foodChoice1">Vegetarian</label>
+
+				<input type="radio" id="foodChoice2" name="food" value="non-vegetarian">
+				<label for="foodChoice2">Non-vegetarian</label>
+
+				<input type="radio" id="foodChoice3" name="food" value="vegan">
+				<label for="foodChoice3">Vegan</label>
+			</div>
+
+			<div>
+				<input type="radio" id="foodChoice4" name="food" value="other"
+					onclick="this.form.otherFood.disabled=!this.checked">
+				<label for="foodChoice4">Other (specify)</label>
+
+				<input type="text" id="otherFood" name="food" disabled>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Additional information</legend>
+
+			<div>
+				<label for="studentID">Student ID</label>
+				<input type="file" id="studentID" name="studentID" accept="image/png, image/jpeg" required>
+			</div>
+
+			<div>
+				<label for="comments">Comments/requests</label>
+				<textarea name="comments" id="comments" maxlength="300"></textarea>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Consent and submission</legend>
+
+			<input type="checkbox" id="terms" name="terms" required>
+			<label for="terms">I agree to the Terms & Conditions</label>
+
+			<input type="submit" value="submit">
+		</fieldset>
+	</form>
+</body>
+
+</html>
